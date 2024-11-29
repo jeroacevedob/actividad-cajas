@@ -1,0 +1,71 @@
+---
+title: "Optimización del Diseño de Cajas para Transporte: Análisis del Deslizamiento en Superficies Inclinadas"
+author: "Alejandro Henao, Jerónimo Acevedo"
+lang: es
+theme: minty
+format:
+  html:
+    toc: true
+    toc-location: left
+    number-sections: true
+editor: visual 
+---
+
+```{r include = FALSE}
+knitr :: opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+```
+
+# OBJETIVOS
+
+## OBJETIVO GENERAL
+
+Identificar los principales factores que influyen en la predicción del desplazamiento de las cajas en diferentes superficies inclinadas , mediante un análisis de regresión lineal múltiple.
+
+## OBJETIVOS ESPECIFICOS
+
+1.Determinar cómo el diseño del empaque, el peso del contenido y el rozamiento de la superficie afectan la distancia que puede deslizarse una caja en una superficie inclinada. Esto es útil para optimizar el transporte y manejo de materiales en almacenes o plantas industriales.
+
+2.Determinar que tan influyente es el peso en el desplazamiento de la caja.
+
+# DESCRIPCIÓN DEL EXPERIMENTO
+
+La variable respuesta del experimento es "Distancia de Desplazamiento", la cual se mide en centímetros (cm). En el experimento se tiene como objetivo maximizar la distancia de desplazamiento. Factor controlable: Diseño de la caja. El factor que se mantiene constante es el ángulo de inclinación de la superficie y distancia del plano inclinado. Los factores de ruido son las variaciones mínimas de fricción que se presentan por el desgaste que pueda presentar la superficie. La unidad experimental serían las cajas que se van a evaluar. Son 27 tratamientos por 3 réplicas, un total de 81 observaciones. La forma en la que se distribuyeron los pesos.
+
+Inicialmente obsevamos en los gráficos que el diseño de caja que maximiza la distancia de desplazamiento es el diseño rectangular, con un promedio de 42.1 y en el que se encuentran menor distancia es en el diseño de base reforzada con un promedio de 36.49, haciendo la comparacion con el peso del contenido se concluye que entre mas liviano mas distancia recorre, ya que las cajas con mayor recorrido son las que tienen 1kg de peso, teniendo un promedio de 44.09 y la menor distancia es cuando el peso es de 3kg, con un promedio de 36.26.
+
+Todos los factores principales y sus interacciones son altamente significativos según los p-valores extremadamente bajos (\< 2e-16). Esto sugiere que tanto los factores individuales (Diseño de la Caja, Superficie, y Peso del Contenido) como sus interacciones tienen un efecto importante y estadísticamente significativo sobre la variable dependiente Distancia de Deslizamiento (cm).
+
+Los mejores resultados se obtienen con el diseño rectangular, peso de 1 kg y supeficie lisa, pues tiene mejor desempeño a la hora de deslizarse en el plano inclinado. Es decir, recorre mas distancia.
+
+![GRÁFICAS](graficas.jpg)\
+
+Se usaron 3 réplicas en el experimento, se obtuvo 0.36 y para obtener una potencia de 0.90 se necesitan aproximadamente 10 réplicas.
+
+se observó que tanto el diseño del empaque, el peso del contenido, y el tipo de superficie tienen un impacto significativo en la distancia que las cajas pueden deslizarse en una superficie inclinada. Sin embargo, las interacciones entre estos factores también juegan un papel importante. Por ejemplo, ciertos diseños de caja podrían ser más eficaces en superficies rugosas, mientras que otros se desempeñan mejor en superficies lisas.
+
+El modelo de regresión lineal múltiple indicó que el diseño del empaque y el peso del contenido son factores clave para predecir el desplazamiento, y la superficie de contacto modula este comportamiento. En general, el aumento del peso del contenido parece reducir la distancia de deslizamiento, lo cual es coherente con la física del movimiento en superficies inclinadas. Por otro lado, la superficie de contacto tiene una influencia decisiva, ya que una mayor rugosidad genera más fricción, lo que limita el deslizamiento.
+
+El análisis mostró que el peso del contenido es un factor determinante en la distancia de deslizamiento. A medida que el peso aumenta, la distancia recorrida por la caja disminuye. Esto puede explicarse porque el aumento de la masa genera una mayor fuerza de fricción con la superficie, lo que reduce la capacidad de deslizamiento. Este hallazgo es relevante para optimizar los procesos de almacenamiento y transporte, ya que un diseño de empaque que minimice el peso, o que sea capaz de distribuirlo uniformemente, podría mejorar la eficiencia en el manejo de materiales en almacenes.
+
+El análisis de potencia reveló que, con el tamaño de muestra actual, el modelo tiene una potencia adecuada para detectar diferencias significativas entre los factores principales y sus interacciones. Sin embargo, se recomienda aumentar el tamaño de la muestra para mejorar aún más la capacidad del modelo para detectar pequeños efectos.
+
+En base a los resultados de las pruebas y los gráficos de interacción, se pudo identificar que ciertos diseños de caja combinados con superficies de bajo rozamiento permiten que las cajas se deslicen distancias más largas. Estos tratamientos son los más eficaces en términos de minimizar la fricción y optimizar el transporte de materiales.
+
+Se sugiere revisar y probar otros diseños que puedan reducir el peso o distribuirlo de manera más uniforme para mejorar el desplazamiento. Para un transporte más eficiente, se recomienda elegir superficies con menor fricción cuando sea posible. Para obtener resultados más fiables, sería ideal aumentar el tamaño de la muestra y considerar otras transformaciones en los datos para cumplir mejor con los supuestos estadísticos.
+
+Modelos de Medias
+
+Yij es la cantidad de distancia que se desplaza cada caja en el diseño de caja i y réplica j. Ui es el promedio de distancia que se desplaza cada caja en el diseño i. Ei es el componente de error aleatorio en el diseño de caja i. a es el número de diseños de caja; a = 3. n es el número de réplicas por diseño de caja; n = 3.
+
+Yij es la cantidad de distancia que se desplaza cada caja en el peso i y réplica j. Ui es el promedio de distancia que se desplaza cada caja en el peso i. Ei es el componente de error aleatorio en el peso i. a es el número de pesos diferentes; a = 3. n es el número de réplicas por peso; n = 3.
+
+Yij es la cantidad de distancia que se desplaza cada caja en la superficie i y réplica j. Ui es el promedio de distancia que se desplaza cada caja en la superficie i. Ei es el componente de error aleatorio en la superficie i. a es el número de superficies diferentes; a = 3. n es el número de réplicas por superficie; n = 3.
+
+Modelos de Efectos
+
+Yij es la cantidad de distancia desplazada por caja en el diseño i y réplica j. U es el promedio de cantidad de distancia desplazada por caja en todos los diseños. Ti es el efecto que tiene el diseño de caja i. Ei es el componente de error aleatorio en el diseño de caja i. a es el número de diseños de caja; a = 3. n es el número de réplicas por diseño de caja; n = 3.
+
+Yij es la cantidad de distancia desplazada por caja en el peso i y réplica j. U es el promedio de cantidad de distancia desplazada por caja en todos los pesos. Ti es el efecto que tiene el peso i. Ei es el componente de error aleatorio en el peso i. a es el número de pesos; a = 3. n es el número de réplicas por peso; n = 3.
+
+Yij es la cantidad de distancia desplazada por caja en la superficie i y réplica j. U es el promedio de cantidad de distancia desplazada por caja en todas las superficies. Ti es el efecto que tiene la superficie i. Ei es el componente de error aleatorio en la superficie i. a es el número de superficies; a = 3. n es el número de réplicas por superficie; n = 3.
